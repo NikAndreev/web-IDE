@@ -13,12 +13,12 @@
     "@codemirror/theme-one-dark": "^6.1.2",
     "@vicons/ionicons5": "^0.12.0",
     "codemirror": "^6.0.1",
+    "naive-ui": "^2.39.0",
     "vue": "^3.3.4",
     "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "naive-ui": "^2.35.0",
     "vite": "^4.4.5"
   }
 }

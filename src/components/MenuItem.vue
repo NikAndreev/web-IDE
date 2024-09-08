@@ -37,7 +37,7 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    names: {
+    files: {
       type: Array,
       required: true,
     },
@@ -47,7 +47,7 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
-    const { name, names, isNew } = toRefs(props);
+    const { name, files, isNew } = toRefs(props);
 
     const showDropdown = ref(false);
     const x = ref(0);
@@ -61,9 +61,8 @@ export default defineComponent({
 
     const isValid = computed(() => {
       return (
-        !names.value
-          .filter((item) => item !== name.value)
-          .includes(inputValue.value) && inputValue.value.length
+        !files.value.find((file) => file.name === inputValue.value) &&
+        inputValue.value.length
       );
     });
 

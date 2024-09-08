@@ -1,7 +1,35 @@
-# Vue 3 + Vite
+# Web IDE
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Простое веб-приложение для редактирования файлов с использованием Vue 3, Naive UI и CodeMirror.
 
-## Recommended IDE Setup
+## Функциональные возможности
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Создание, переименование и удаление файлов.
+- Редактирование содержимого файлов с помощью CodeMirror.
+
+## Технологии
+
+- **Vue 3**: Основной фреймворк для построения пользовательского интерфейса.
+- **Naive UI**: Библиотека компонентов для Vue 3.
+- **CodeMirror**: Редактор кода, используемый для отображения и редактирования текстового содержимого.
+- **Vite**: Инструмент для сборки проекта.
+
+## Установка
+
+1. Клонируйте репозиторий:
+
+   ```bash
+   git clone https://github.com/NikAndreev/Web-IDE.git
+   ```
+
+2. Перейдите в папку проекта:
+
+   ```bash
+   cd Web-IDE
+   ```
+
+3. Установите зависимости:
+
+   ```bash
+   npm install
+   ```

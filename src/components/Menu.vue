@@ -30,8 +30,6 @@ export default defineComponent({
     const { files } = toRefs(props);
     const showNewFile = ref(false);
 
-    const names = computed(() => files.value.map((file) => file.name));
-
     const sortedFiles = computed(() => {
       return [...files.value].sort((fileA, fileB) => {
         if (fileA.name > fileB.name) {
@@ -46,8 +44,8 @@ export default defineComponent({
 
     const getIcon = () => h(NIcon, null, { default: () => h(LogoJavascript) });
 
-    const selectFile = (key) => {
-      emit("selectFile", key);
+    const selectFile = (id) => {
+      emit("selectFile", id);
     };
 
     const menuOptions = computed(() => {
@@ -56,7 +54,7 @@ export default defineComponent({
           label: () =>
             h(MenuItem, {
               name: "",
-              names: names.value,
+              files: files.value,
               isNew: true,
               onRename: (name) => {
                 showNewFile.value = false;
@@ -66,7 +64,7 @@ export default defineComponent({
                 showNewFile.value = false;
               },
             }),
-          key: "newFile",
+          key: "new-file",
           show: showNewFile.value,
           icon: getIcon,
         },
@@ -75,13 +73,13 @@ export default defineComponent({
             label: () =>
               h(MenuItem, {
                 name: file.name,
-                names: names.value,
+                files: files.value,
                 onDelete: () => {
-                  emit("deleteFile", file);
+                  emit("deleteFile", file.id);
                 },
                 onRename: (name) => {
                   emit("renameFile", {
-                    file,
+                    id: file.id,
                     name,
                   });
                 },

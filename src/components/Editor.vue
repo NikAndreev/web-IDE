@@ -3,7 +3,7 @@
     :extensions="extensions"
     :modelValue="modelValue"
     @update:modelValue="$emit('update:modelValue', $event)"
-    :disabled="!fileSelected"
+    :disabled="!isFileSelected"
     :placeholder="placeholder"
     :style="{ height: '100vh' }"
     :autofocus="true"
@@ -32,17 +32,15 @@ export default defineComponent({
     const { modelValue } = toRefs(props);
     const extensions = [javascript(), oneDark];
 
-    const fileSelected = computed(() => {
-      return modelValue.value !== undefined;
-    });
+    const isFileSelected = computed(() => modelValue.value !== undefined);
 
-    const placeholder = computed(() => {
-      return fileSelected.value ? "Code goes here..." : "Choose File...";
-    });
+    const placeholder = computed(() =>
+      isFileSelected.value ? "Code goes here..." : "Choose File..."
+    );
 
     return {
       extensions,
-      fileSelected,
+      isFileSelected,
       placeholder,
     };
   },
